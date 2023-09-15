@@ -239,7 +239,8 @@ class HistoJob(CLAS12Job):
     cmd += ' && %s/bin/run-monitoring.sh --swifjob --focus-physics && ls -l ./outfiles && mv outfiles %s'%(HistoJob.TDIR,self.getTag('run'))
     CLAS12Job.setCmd(self,cmd)
     outDir = self.cfg['outDir'] + '/hist/physics/'
-    self.addOutputWildcard('./%s/*'%self.getTag('run'),outDir)
+    for ext in ['hipo', 'dat']:
+        self.addOutputWildcard('./%s/*.%s'%(self.getTag('run'),ext),outDir)
   def addInputData(self,filenames,auger=False):
     CLAS12Job.addInputData(self, filenames, auger=auger)
 
