@@ -8,7 +8,7 @@ clas12-workflow.py \
   --tag            dilks_physics                                                                  \
   --runs           11274,11540                                                                    \
   --inputs         '/volatile/clas12/rg-b/production/recon/pass0/v29.33/mon/recon/*/*-0000?.hipo' \
-  --outDir         '/volatile/clas12/users/dilks/test_physics'                                    \
+  --outDir         '/volatile/clas12/users/dilks/test_workflow'                                   \
   --coatjava       '/group/clas12/packages/coatjava/10.0.2'             #       --submit
 
 ### SWIF notes ###
