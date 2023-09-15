@@ -5,7 +5,7 @@ source ./env.sh
 clas12-workflow.py \
   --model          his                                                                            \
   --runGroup       rgb                                                                            \
-  --tag            dilks_physics                                                                  \
+  --tag            dilks_physics2                                                                 \
   --runs           11274,11540                                                                    \
   --inputs         '/volatile/clas12/rg-b/production/recon/pass0/v29.33/mon/recon/*/*-0000?.hipo' \
   --outDir         '/volatile/clas12/users/dilks/test_workflow'                                   \
