@@ -235,11 +235,12 @@ class HistoJob(CLAS12Job):
     self.addEnv('COATJAVA',cfg['coatjava'])
     self.addEnv('PATH','/group/clas12/packages/groovy/4.0.3/bin:${COATJAVA}/bin:${PATH}')
   def setCmd(self):
+    timeline='physics' if self.cfg['timelinePhysics'] else 'detectors'
     cmd =  ' ln -s %s .'%(' '.join(self.inputData))
-    cmd += ' && %s/bin/run-monitoring.sh --swifjob --focus-physics && ls -l ./outfiles && mv outfiles %s'%(HistoJob.TDIR,self.getTag('run'))
+    cmd += ' && %s/bin/run-monitoring.sh --swifjob --focus-%s && ls -l ./outfiles && mv outfiles %s'%(HistoJob.TDIR,timeline,self.getTag('run'))
     CLAS12Job.setCmd(self,cmd)
-    outDir = self.cfg['outDir'] + '/hist/physics/'
-    for ext in ['hipo', 'dat']:
+    outDir = self.cfg['outDir'] + '/hist/%s/'%timeline
+    for ext in ['hipo', 'dat'] if self.cfg['timelinePhysics'] else ['hipo']:
         self.addOutputWildcard('./%s/*.%s'%(self.getTag('run'),ext),outDir)
   def addInputData(self,filenames,auger=False):
     CLAS12Job.addInputData(self, filenames, auger=auger)
