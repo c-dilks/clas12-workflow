@@ -5,11 +5,11 @@ source ./env.sh
 clas12-workflow.py \
   --model          his                                                                            \
   --runGroup       rgb                                                                            \
-  --tag            dilks_test                                                                     \
+  --tag            dilks_physics                                                                  \
   --runs           11274,11540                                                                    \
   --inputs         '/volatile/clas12/rg-b/production/recon/pass0/v29.33/mon/recon/*/*-0000?.hipo' \
-  --outDir         '/volatile/clas12/users/dilks/test_workflow'                                   \
-  --coatjava       '/group/clas12/packages/coatjava/10.0.2'                    --submit
+  --outDir         '/volatile/clas12/users/dilks/test_physics'                                    \
+  --coatjava       '/group/clas12/packages/coatjava/10.0.2'             #       --submit
 
 ### SWIF notes ###
 ### submission
