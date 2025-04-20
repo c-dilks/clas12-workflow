@@ -23,7 +23,7 @@ STOCK_TRAIN_YAMLS={}
 for x in sorted(glob.glob(_TOPDIR+'/yamls/train_*.yaml')):
   STOCK_TRAIN_YAMLS[os.path.basename(x)[6:][:-5]] = x
 
-CFG=json.load(open(_TOPDIR+'/lib/clas12/defaults.json','r'))
+CFG=json.load(open(_TOPDIR+'/etc/defaults.json','r'))
 
 if CFG['logDir'] is None:
   CFG['logDir'] = '/farm_out/'+getpass.getuser()
